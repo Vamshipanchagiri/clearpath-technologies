@@ -1,108 +1,203 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { MapPin, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MapPin, Mail, Send } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Message Received",
+        description: "Thank you for contacting us. We will respond to your inquiry shortly.",
+      });
+      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <>
       <Helmet>
         <title>Contact Us - Clearpath Technologies</title>
-        <meta name="description" content="Contact Clearpath Technologies Private Limited in Hyderabad for IT consulting, software development, and cloud infrastructure services." />
+        <meta name="description" content="Contact Clearpath Technologies for technology services inquiries. Located in Hyderabad, India. Email: info@clearpathtechnologies.in" />
       </Helmet>
 
       <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
-              Get in touch with our team to discuss your technology requirements. We are located in Hyderabad, India.
-            </p>
+        {/* Header */}
+        <section className="bg-gradient-to-br from-slate-50 to-white py-16 px-4">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
+                Contact Us
+              </h1>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                We're here to discuss your technology needs and explore how we can support 
+                your organization's objectives.
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Contact Information */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Company Details */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-2xl font-bold text-[#1e3a5f] mb-6">
-                    Company Information
-                  </h2>
-                  <div className="space-y-4">
-                    <p className="text-lg font-semibold text-[#1e3a5f]">
+        {/* Contact Information and Form */}
+        <section className="py-16 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Information */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-navy-900 mb-8">
+                  Get in Touch
+                </h2>
+
+                <div className="space-y-6">
+                  {/* Company Name */}
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">
                       Clearpath Technologies Private Limited
-                    </p>
+                    </h3>
+                  </div>
+
+                  {/* Address */}
+                  <div className="flex items-start">
+                    <MapPin className="text-blue-600 mt-1 mr-4 flex-shrink-0" size={24} />
+                    <div>
+                      <p className="font-semibold text-navy-900 mb-1">Address</p>
+                      <p className="text-slate-600">
+                        6th Floor Tower 2, Knowledge City<br />
+                        Raidurg, Hyderabad 500032<br />
+                        Telangana, India
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start">
+                    <Mail className="text-blue-600 mt-1 mr-4 flex-shrink-0" size={24} />
+                    <div>
+                      <p className="font-semibold text-navy-900 mb-1">Email</p>
+                      <a 
+                        href="mailto:info@clearpathtechnologies.in"
+                        className="text-blue-600 hover:text-blue-700 transition-colors"
+                      >
+                        info@clearpathtechnologies.in
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Address */}
-                <div className="flex items-start">
-                  <MapPin className="text-[#4a7ba7] mt-1 mr-4 flex-shrink-0" size={24} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">
-                      Address
-                    </h3>
-                    <address className="text-gray-600 leading-relaxed not-italic">
-                      6th Floor Tower 2<br />
-                      Knowledge City Raidurg<br />
-                      Hyderabad 500032<br />
-                      Telangana<br />
-                      India
-                    </address>
-                  </div>
+                <div className="mt-8 p-6 bg-slate-50 rounded-lg">
+                  <p className="text-slate-600 leading-relaxed">
+                    We typically respond to inquiries within one business day. For urgent matters, 
+                    please indicate this in your message.
+                  </p>
                 </div>
+              </motion.div>
 
-                {/* Email */}
-                <div className="flex items-start">
-                  <Mail className="text-[#4a7ba7] mt-1 mr-4 flex-shrink-0" size={24} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">
-                      Email
-                    </h3>
-                    <a
-                      href="mailto:info@clearpathtechnologies.in"
-                      className="text-[#4a7ba7] hover:text-[#1e3a5f] transition-colors duration-200"
+              {/* Contact Form */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="bg-slate-50 p-8 rounded-lg border border-slate-200">
+                  <h2 className="text-2xl font-bold text-navy-900 mb-6">
+                    Send Us a Message
+                  </h2>
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white text-slate-900"
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white text-slate-900"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none bg-white text-slate-900"
+                        placeholder="Tell us about your project or inquiry..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center px-6 py-3 bg-navy-900 text-white rounded-md hover:bg-navy-800 transition-colors duration-200 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      info@clearpathtechnologies.in
-                    </a>
-                  </div>
+                      {isSubmitting ? (
+                        'Sending...'
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2" size={20} />
+                        </>
+                      )}
+                    </button>
+                  </form>
                 </div>
-              </div>
-
-              {/* Map or Additional Info */}
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-4">
-                  Business Inquiries
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  For project inquiries, service questions, or partnership opportunities, please contact us via email. Our team will respond to your message and schedule a discussion to understand your requirements.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  We work with organizations across various industries to deliver software development, cloud infrastructure, IT consulting, and ongoing support services.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Business Hours */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl font-bold text-[#1e3a5f] mb-6">
-                Business Hours
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                Monday - Friday: 9:00 AM - 6:00 PM IST
-              </p>
-              <p className="text-gray-600 leading-relaxed mt-2">
-                We respond to email inquiries within one business day.
-              </p>
+              </motion.div>
             </div>
           </div>
         </section>

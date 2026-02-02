@@ -1,210 +1,165 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { CheckCircle2, ArrowRight, Wrench, ShieldAlert, Zap, Clock, Activity, Headphones, RefreshCcw } from 'lucide-react';
+import ServiceHero from '@/components/ui/ServiceHero';
+import SectionDivider from '@/components/ui/SectionDivider';
 import { Link } from 'react-router-dom';
 
 const MaintenanceSupportPage = () => {
+  const benefits = [
+    { icon: Clock, title: 'Uptime Guarantee', description: 'Minimize downtime with rapid incident response protocols.' },
+    { icon: ShieldAlert, title: 'Security Patches', description: 'Keep systems protected against the latest vulnerabilities.' },
+    { icon: Zap, title: 'Performance Tuning', description: 'Continuous optimization for speed and efficiency.' },
+    { icon: Activity, title: 'Proactive Monitoring', description: 'Identify issues before they impact your users.' }
+  ];
+
+  const methodology = [
+    { title: 'Monitor', desc: 'Real-time system tracking' },
+    { title: 'Detect', desc: 'Automated alert generation' },
+    { title: 'Triage', desc: 'Issue prioritization' },
+    { title: 'Resolve', desc: 'Fix implementation' },
+    { title: 'Report', desc: 'Root cause analysis' }
+  ];
+
   return (
     <>
       <Helmet>
-        <title>Maintenance & Support Services - Clearpath Technologies</title>
-        <meta name="description" content="Ongoing technical support, system maintenance, and performance monitoring to ensure operational continuity." />
+        <title>Maintenance & Support - Clearpath Technologies</title>
+        <meta name="description" content="Proactive software maintenance and technical support." />
       </Helmet>
 
-      <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-6">
-              Maintenance & Support Services
-            </h1>
-            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
-              We provide ongoing technical support and system maintenance to ensure reliable operation of business applications and infrastructure. Our support services include monitoring, issue resolution, updates, and performance optimization.
-            </p>
-          </div>
-        </section>
+      <div className="bg-white min-h-screen">
+        <ServiceHero 
+          title="Maintenance & Support" 
+          description="Ensuring your critical systems remain secure, performant, and up-to-date with proactive maintenance."
+          patternType="maintenance"
+        />
 
-        {/* Service Image */}
-        <section className="py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <img
-              src="https://images.unsplash.com/photo-1695668548342-c0c1ad479aee"
-              alt="IT support infrastructure"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </section>
-
-        {/* Service Explanation */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">
-              What We Deliver
-            </h2>
-            <div className="prose max-w-none text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our maintenance and support services cover application support, infrastructure monitoring, issue resolution, and regular system updates. We provide structured support processes with defined response times and escalation procedures.
-              </p>
-              <p className="mb-4">
-                We handle bug fixes, security patches, performance optimization, and minor enhancements to keep systems operating efficiently. Our services include proactive monitoring to identify and address issues before they impact operations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Business Use Cases */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Business Use Cases
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Application Support
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Ongoing support for business applications including issue resolution, bug fixes, and assistance with application usage.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  System Monitoring
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Continuous monitoring of systems and infrastructure to detect performance issues, security threats, and potential failures.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Security Updates
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Regular application of security patches and updates to protect systems from vulnerabilities and security threats.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Performance Optimization
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Analysis and optimization of system performance including database tuning, code optimization, and resource management.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Enterprise Benefits */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Enterprise Benefits
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Operational Continuity
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Minimized downtime through proactive monitoring and rapid issue resolution to maintain business operations.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Predictable Costs
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Fixed monthly support costs providing budget predictability compared to ad-hoc technical support arrangements.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  System Reliability
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Regular maintenance and updates improving system stability and reducing the likelihood of unexpected failures.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Access to Expertise
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Technical expertise available when needed without maintaining full-time specialized staff for all technology areas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Delivery Approach */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Our Delivery Approach
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Support Structure
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Defined support levels with clear response times, escalation procedures, and communication protocols.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Proactive Monitoring
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Continuous monitoring of systems with automated alerts to identify and address issues before they impact users.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Issue Management
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Structured issue tracking and resolution process with status updates and documentation of all support activities.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Scheduled Maintenance
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Regular maintenance windows for updates, patches, and optimization activities with advance notification and planning.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Performance Reporting
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Regular reports on system performance, support activities, and recommendations for improvements or optimizations.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">
-              Ensure Reliable System Operations
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Contact us to discuss your maintenance and support requirements.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#1e3a5f] text-white font-medium rounded hover:bg-[#2d4a6f] transition-colors duration-200"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-3xl md:text-4xl font-bold text-navy-900 mb-6"
             >
-              Contact Us
+              Reliability You Can Count On
+            </motion.h2>
+            <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+               className="text-lg md:text-xl text-slate-600 leading-relaxed font-light"
+            >
+              Software requires ongoing care to remain effective. Our support services 
+              provide the peace of mind that comes from knowing your systems are monitored, 
+              secure, and ready to handle business demands.
+            </motion.p>
+          </div>
+        </div>
+
+        <SectionDivider type="wave" className="text-slate-50" />
+
+        <div className="bg-slate-50 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-12 text-center">Support Types</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+               {[
+                 { icon: Wrench, title: 'Corrective', desc: 'Rapid bug fixes and issue resolution for production systems.' },
+                 { icon: RefreshCcw, title: 'Adaptive', desc: 'Updates to ensure compatibility with new OS versions.' },
+                 { icon: Zap, title: 'Perfective', desc: 'Performance optimization and code refactoring.' },
+                 { icon: ShieldAlert, title: 'Preventive', desc: 'Proactive monitoring to catch issues early.' }
+               ].map((item, i) => (
+                 <motion.div 
+                   key={i}
+                   initial={{ opacity: 0, y: 30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: i * 0.1 }}
+                   whileHover={{ y: -5 }}
+                   className="p-8 bg-white rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300"
+                 >
+                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
+                     <item.icon size={24} />
+                   </div>
+                   <h3 className="text-lg font-bold text-navy-900 mb-3">{item.title}</h3>
+                   <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                 </motion.div>
+               ))}
+            </div>
+          </div>
+        </div>
+
+        <SectionDivider type="slope" className="text-slate-50" flip />
+
+        <div className="bg-white py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Service Value</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {benefits.map((benefit, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-start p-6 rounded-xl hover:bg-slate-50 transition-colors duration-300"
+                >
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg text-white shadow-md mr-5 flex-shrink-0">
+                    <benefit.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-slate-50 py-24">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Support Lifecycle</h2>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+              <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+              {methodology.map((step, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="relative z-10 flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-md border border-slate-100 md:bg-transparent md:shadow-none md:border-none"
+                >
+                   <div className="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold mb-4 shadow-lg z-10">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-navy-900 mb-1">{step.title}</h3>
+                  <p className="text-sm text-slate-500">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="bg-gradient-to-r from-navy-900 to-blue-900 rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Get Reliable Support</h2>
+            <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg relative z-10">
+              Ensure your business operations never miss a beat.
+            </p>
+            <Link 
+              to="/" 
+              state={{ scrollTo: 'contact' }}
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-lg hover:bg-blue-50 transition-all duration-300 font-bold shadow-lg relative z-10 hover:-translate-y-1"
+            >
+              Contact Support
+              <ArrowRight className="ml-2" size={20} />
             </Link>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

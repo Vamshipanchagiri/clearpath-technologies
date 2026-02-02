@@ -1,210 +1,180 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { CheckCircle2, ArrowRight, Smartphone, Globe, Layout, ShoppingCart, Users, Zap } from 'lucide-react';
+import ServiceHero from '@/components/ui/ServiceHero';
+import TechStack from '@/components/ui/TechStack';
+import SectionDivider from '@/components/ui/SectionDivider';
 import { Link } from 'react-router-dom';
 
 const WebApplicationPage = () => {
+  const techStack = {
+    Frontend: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS'],
+    Backend: ['Node.js', 'Express', 'Django', 'GraphQL'],
+    Mobile: ['React Native', 'Flutter', 'PWA'],
+    Tools: ['Webpack', 'Vite', 'Figma', 'Jest']
+  };
+
+  const benefits = [
+    { icon: Smartphone, title: 'Responsive Design', description: 'Flawless experiences across mobile, tablet, and desktop devices.' },
+    { icon: Zap, title: 'High Performance', description: 'Optimized loading times and smooth interactions for better engagement.' },
+    { icon: Users, title: 'User-Centric', description: 'Intuitive interfaces designed with the end-user in mind.' },
+    { icon: Globe, title: 'SEO Friendly', description: 'Built with search engine visibility best practices.' }
+  ];
+
+  const methodology = [
+    { title: 'UX Research', desc: 'User personas & journeys' },
+    { title: 'Wireframing', desc: 'Structural layouts' },
+    { title: 'Visual Design', desc: 'High-fidelity mockups' },
+    { title: 'Development', desc: 'Frontend & Backend coding' },
+    { title: 'Launch', desc: 'Deployment & Analytics' }
+  ];
+
   return (
     <>
       <Helmet>
         <title>Web & Application Development - Clearpath Technologies</title>
-        <meta name="description" content="Scalable web applications and mobile solutions built with modern frameworks to support business operations and customer engagement." />
+        <meta name="description" content="Responsive web and mobile application development. We create user-centric digital experiences." />
       </Helmet>
 
-      <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-6">
-              Web & Application Development
-            </h1>
-            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
-              We develop web applications and mobile solutions that support business operations and customer engagement. Our development approach focuses on responsive design, performance optimization, and secure implementation using modern frameworks.
-            </p>
-          </div>
-        </section>
+      <div className="bg-white min-h-screen">
+        <ServiceHero 
+          title="Web & Application Development" 
+          description="Creating intuitive, high-performance web and mobile applications that engage users and deliver measurable results."
+          patternType="web"
+        />
 
-        {/* Service Image */}
-        <section className="py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <img
-              src="https://images.unsplash.com/photo-1695668548342-c0c1ad479aee"
-              alt="Technology infrastructure"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </section>
-
-        {/* Service Explanation */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">
-              What We Deliver
-            </h2>
-            <div className="prose max-w-none text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our web and application development services include responsive web applications, progressive web apps, and native mobile applications. We work with established frameworks and platforms to build solutions that function reliably across devices and browsers.
-              </p>
-              <p className="mb-4">
-                We prioritize user experience, accessibility standards, and performance optimization throughout the development process. Our applications are built with security considerations, including data protection, authentication, and secure communications.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Business Use Cases */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Business Use Cases
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Customer Portals
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Self-service portals for customers to access information, manage accounts, submit requests, and track service delivery.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Internal Business Applications
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Web-based applications for internal teams to manage operations, collaboration, reporting, and workflow management.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  E-commerce Platforms
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Online sales platforms with product catalogs, shopping carts, payment processing, and order management functionality.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Mobile Workforce Applications
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Mobile applications for field teams to access data, update records, and communicate while working remotely.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Enterprise Benefits */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Enterprise Benefits
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Cross-Platform Accessibility
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Applications that function consistently across desktop, tablet, and mobile devices, enabling access from any location.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Improved User Experience
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Intuitive interfaces designed for ease of use, reducing training requirements and improving user adoption rates.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Real-time Data Access
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Live data synchronization enabling users to access current information and make timely decisions.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Reduced Infrastructure Costs
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Cloud-based deployment minimizing on-premises infrastructure requirements and associated maintenance costs.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Delivery Approach */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Our Delivery Approach
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  User Experience Design
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Interface design focused on usability, accessibility, and intuitive navigation based on user research and best practices.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Responsive Development
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Implementation using responsive design techniques to ensure consistent functionality across different screen sizes and devices.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Performance Optimization
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Code optimization, caching strategies, and efficient data handling to ensure fast load times and smooth operation.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Security Implementation
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Security measures including authentication, authorization, data encryption, and protection against common vulnerabilities.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Cross-Browser Testing
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Comprehensive testing across browsers, devices, and operating systems to verify consistent functionality and appearance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">
-              Ready to Build Your Web Application?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Contact us to discuss your web or mobile application requirements.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#1e3a5f] text-white font-medium rounded hover:bg-[#2d4a6f] transition-colors duration-200"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-3xl md:text-4xl font-bold text-navy-900 mb-6"
             >
-              Contact Us
+              Digital Experiences That Matter
+            </motion.h2>
+            <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+               className="text-lg md:text-xl text-slate-600 leading-relaxed font-light"
+            >
+              In a digital-first world, your applications are the face of your business. 
+              We combine aesthetic design with powerful engineering to build web and mobile 
+              apps that are fast, secure, and accessible.
+            </motion.p>
+          </div>
+        </div>
+
+        <SectionDivider type="curve" className="text-slate-50" />
+
+        {/* Use Cases */}
+        <div className="bg-slate-50 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-12 text-center">Impactful Solutions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: Users, title: 'Customer Portals', desc: 'Secure self-service platforms for your clients.' },
+                { icon: ShoppingCart, title: 'E-commerce', desc: 'Robust online stores with seamless payment integration.' },
+                { icon: Layout, title: 'SaaS Platforms', desc: 'Scalable software-as-a-service applications.' }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="p-8 bg-white rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
+                    <item.icon size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy-900 mb-3">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <SectionDivider type="slope" className="text-slate-50" flip />
+
+        {/* Benefits */}
+        <div className="bg-white py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Key Advantages</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {benefits.map((benefit, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-start p-6 rounded-xl hover:bg-slate-50 transition-colors duration-300"
+                >
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg text-white shadow-md mr-5 flex-shrink-0">
+                    <benefit.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <TechStack technologies={techStack} />
+        </div>
+
+        {/* Methodology */}
+        <div className="bg-slate-50 py-24 mt-12">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Design to Code Process</h2>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+              <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+              {methodology.map((step, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="relative z-10 flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-md border border-slate-100 md:bg-transparent md:shadow-none md:border-none"
+                >
+                  <div className="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold mb-4 shadow-lg z-10">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-navy-900 mb-1">{step.title}</h3>
+                  <p className="text-sm text-slate-500">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="bg-gradient-to-r from-navy-900 to-blue-900 rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Elevate Your Digital Presence</h2>
+            <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg relative z-10">
+              Partner with us to build applications that engage and convert.
+            </p>
+            <Link 
+              to="/" 
+              state={{ scrollTo: 'contact' }}
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-lg hover:bg-blue-50 transition-all duration-300 font-bold shadow-lg relative z-10 hover:-translate-y-1"
+            >
+              Get a Quote
+              <ArrowRight className="ml-2" size={20} />
             </Link>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

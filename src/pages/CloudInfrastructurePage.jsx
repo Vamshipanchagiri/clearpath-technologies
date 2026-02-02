@@ -1,210 +1,181 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { CheckCircle2, ArrowRight, Cloud, Server, Shield, TrendingDown, RefreshCcw, Lock } from 'lucide-react';
+import ServiceHero from '@/components/ui/ServiceHero';
+import TechStack from '@/components/ui/TechStack';
+import SectionDivider from '@/components/ui/SectionDivider';
 import { Link } from 'react-router-dom';
 
 const CloudInfrastructurePage = () => {
+  const techStack = {
+    Platforms: ['AWS', 'Azure', 'Google Cloud', 'DigitalOcean'],
+    IaC: ['Terraform', 'CloudFormation', 'Ansible'],
+    Monitoring: ['Prometheus', 'Grafana', 'CloudWatch'],
+    Security: ['IAM', 'WAF', 'VPC', 'SSL/TLS']
+  };
+
+  const benefits = [
+    { icon: RefreshCcw, title: 'High Availability', description: 'Redundant systems ensuring your business stays online 24/7.' },
+    { icon: Shield, title: 'Enhanced Security', description: 'Advanced threat protection and compliance management.' },
+    { icon: TrendingDown, title: 'Cost Efficiency', description: 'Pay only for what you use with optimized resource allocation.' },
+    { icon: Server, title: 'Scalability', description: 'Instantly scale resources up or down based on demand.' }
+  ];
+
+  const methodology = [
+    { title: 'Assess', desc: 'Infrastructure audit & planning' },
+    { title: 'Migrate', desc: 'Secure data transfer & setup' },
+    { title: 'Optimize', desc: 'Performance tuning & cost control' },
+    { title: 'Secure', desc: 'Compliance & access controls' },
+    { title: 'Manage', desc: '24/7 Monitoring & support' }
+  ];
+
   return (
     <>
       <Helmet>
-        <title>Cloud & Infrastructure Support - Clearpath Technologies</title>
-        <meta name="description" content="Cloud migration, infrastructure management, and optimization services to ensure reliable, scalable technology infrastructure." />
+        <title>Cloud Infrastructure Support - Clearpath Technologies</title>
+        <meta name="description" content="Secure, scalable cloud infrastructure services. Migration, management, and optimization." />
       </Helmet>
 
-      <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-6">
-              Cloud & Infrastructure Support
-            </h1>
-            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
-              We provide cloud migration, infrastructure management, and optimization services to help organizations build reliable, scalable technology infrastructure. Our approach emphasizes stability, security, and cost-effectiveness.
-            </p>
-          </div>
-        </section>
+      <div className="bg-white min-h-screen">
+        <ServiceHero 
+          title="Cloud & Infrastructure Support" 
+          description="Reliable cloud solutions designed for high availability, security, and cost-efficiency."
+          patternType="cloud"
+        />
 
-        {/* Service Image */}
-        <section className="py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <img
-              src="https://images.unsplash.com/photo-1695668548342-c0c1ad479aee"
-              alt="Cloud data center infrastructure"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </section>
-
-        {/* Service Explanation */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">
-              What We Deliver
-            </h2>
-            <div className="prose max-w-none text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our cloud and infrastructure services include cloud platform assessment, migration planning, implementation, and ongoing management. We work with major cloud providers to design infrastructure that meets performance, security, and compliance requirements.
-              </p>
-              <p className="mb-4">
-                We manage the technical aspects of cloud infrastructure including compute resources, storage, networking, security configurations, and backup systems. Our services include monitoring, performance optimization, and capacity planning to ensure reliable operations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Business Use Cases */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Business Use Cases
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Cloud Migration
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Moving applications and data from on-premises infrastructure to cloud platforms to improve scalability and reduce capital costs.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Infrastructure Optimization
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Analysis and optimization of cloud resources to improve performance and reduce operational costs through right-sizing and efficient resource allocation.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Disaster Recovery
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Implementation of backup and recovery systems to protect data and ensure business continuity in case of system failures.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-3">
-                  Hybrid Cloud Setup
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Integration of cloud services with existing on-premises systems to create flexible, cost-effective infrastructure solutions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Enterprise Benefits */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Enterprise Benefits
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Scalability and Flexibility
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Ability to adjust computing resources based on demand, avoiding over-provisioning and reducing infrastructure costs.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Reduced Capital Expenditure
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Shift from capital-intensive hardware purchases to operational expenses with pay-as-you-go cloud services.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Improved Reliability
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Built-in redundancy and automated failover mechanisms provided by cloud platforms to maintain service availability.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#4a7ba7] pl-6">
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Enhanced Security
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Enterprise-grade security features including encryption, access controls, and compliance certifications.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Delivery Approach */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">
-              Our Delivery Approach
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Infrastructure Assessment
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Analysis of current infrastructure, workloads, and requirements to develop appropriate cloud strategy and migration plan.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Architecture Design
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Design of cloud infrastructure including network architecture, security configurations, and resource allocation based on requirements.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Migration Execution
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Phased migration approach with testing at each stage to minimize risk and ensure continuity of business operations.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Monitoring and Management
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Implementation of monitoring tools, alert systems, and management processes to maintain infrastructure performance and availability.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2">
-                  Optimization and Support
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Ongoing optimization of resources, cost management, and technical support to ensure efficient cloud operations.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">
-              Plan Your Cloud Infrastructure
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Contact us to discuss your cloud migration or infrastructure optimization needs.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#1e3a5f] text-white font-medium rounded hover:bg-[#2d4a6f] transition-colors duration-200"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-3xl md:text-4xl font-bold text-navy-900 mb-6"
             >
-              Contact Us
+              Foundation for Growth
+            </motion.h2>
+            <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+               className="text-lg md:text-xl text-slate-600 leading-relaxed font-light"
+            >
+              Modern businesses rely on the cloud. We help you navigate the complexity of 
+              cloud infrastructure, ensuring your systems are resilient, secure, and optimized 
+              for performance and cost.
+            </motion.p>
+          </div>
+        </div>
+
+        <SectionDivider type="wave" className="text-slate-50" />
+
+        {/* Use Cases */}
+        <div className="bg-slate-50 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-12 text-center">Cloud Solutions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { icon: Cloud, title: 'Cloud Migration', desc: 'Seamless transition of legacy systems to the cloud with minimal downtime.' },
+                { icon: Server, title: 'Infrastructure Management', desc: '24/7 monitoring and management of your cloud resources.' },
+                { icon: TrendingDown, title: 'Cost Optimization', desc: 'Analysis and adjustment of resources to reduce cloud spend.' },
+                { icon: Lock, title: 'Disaster Recovery', desc: 'Robust backup and recovery strategies to protect business continuity.' }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="p-8 bg-white rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 flex items-start"
+                >
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-6 flex-shrink-0 text-blue-600">
+                    <item.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <SectionDivider type="slope" className="text-slate-50" flip />
+
+        {/* Benefits */}
+        <div className="bg-white py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Infrastructure Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {benefits.map((benefit, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-start p-6 rounded-xl hover:bg-slate-50 transition-colors duration-300"
+                >
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg text-white shadow-md mr-5 flex-shrink-0">
+                    <benefit.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <TechStack technologies={techStack} />
+        </div>
+
+        <div className="bg-slate-50 py-24 mt-12">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-16 text-center">Cloud Journey</h2>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+              <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+              {methodology.map((step, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="relative z-10 flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-md border border-slate-100 md:bg-transparent md:shadow-none md:border-none"
+                >
+                   <div className="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold mb-4 shadow-lg z-10">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-navy-900 mb-1">{step.title}</h3>
+                  <p className="text-sm text-slate-500">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="bg-gradient-to-r from-navy-900 to-blue-900 rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Secure Your Infrastructure</h2>
+            <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg relative z-10">
+              Let our experts optimize your cloud environment for peak performance.
+            </p>
+            <Link 
+              to="/" 
+              state={{ scrollTo: 'contact' }}
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-lg hover:bg-blue-50 transition-all duration-300 font-bold shadow-lg relative z-10 hover:-translate-y-1"
+            >
+              Consult an Expert
+              <ArrowRight className="ml-2" size={20} />
             </Link>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
+ "scripts": {
   "dev": "vite --host",
-  "build": "vite build",
+  "build": "npx vite build",
   "preview": "vite preview"
 },
   "dependencies": {
